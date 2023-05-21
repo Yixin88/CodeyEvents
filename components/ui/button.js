@@ -1,10 +1,20 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
-import styles from './button.module.css'
+import styles from "./button.module.css";
 
-export default function Button({children, link}) {
+export default function Button({ children, link, onClick }) {
+  if (link) {
+    return (
+      <Link href={link} className={styles.btn}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <Link href={link} className={styles.btn}>{children}</Link>
-  )
+    <button className={styles.btn} onClick={onClick}>
+      {children}
+    </button>
+  );
 }
