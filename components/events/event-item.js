@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import styles from './event-item.module.css'
+import Button from '../ui/button';
 
 export default function EventItem({title, image, date, location, id}) {
 
@@ -29,7 +30,7 @@ export default function EventItem({title, image, date, location, id}) {
           </div>
         </div>
         <div className={styles.actions}>
-          <Link href={exploreLink}>Explore Event</Link>
+          <Button link={exploreLink}>Explore Event</Button>
         </div>
       </div>
     </li>
