@@ -6,6 +6,7 @@ import ResultsTitle from "../../components/events/results-title";
 import Button from "../../components/ui/button";
 import ErrorAlert from "../../components/ui/error-alert";
 import useSWR from "swr";
+import Head from "next/head";
 
 export default function FilteredEventsPage(props) {
   const [loadedEvents, setLoadedEvents] = useState();
@@ -18,6 +19,15 @@ export default function FilteredEventsPage(props) {
     "https://nextjs-course-4ba9d-default-rtdb.firebaseio.com/events.json",
     fetcher
   );
+
+  
+
+  let pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta name='description' content='A list of filtered events.' />
+    </Head>
+  )
 
   useEffect(() => {
     if (data) {
@@ -35,7 +45,12 @@ export default function FilteredEventsPage(props) {
   }, [data]);
 
   if (!loadedEvents) {
-    return <p className="center">Loading...</p>;
+    return (
+      <>
+        {pageHeadData}
+        <p className="center">Loading...</p>
+      </>
+    );
   }
 
   const filteredYear = filterData[0];
@@ -43,6 +58,13 @@ export default function FilteredEventsPage(props) {
 
   const numYear = +filteredYear;
   const numMonth = +filteredMonth;
+
+  pageHeadData = (
+    <Head>
+      <title>Filtered Events</title>
+      <meta name='description' content={`All events for ${numMonth}/${numYear}`} />
+    </Head>
+  )
 
   if (
     isNaN(numYear) ||
@@ -54,6 +76,7 @@ export default function FilteredEventsPage(props) {
   ) {
     return (
       <>
+        {pageHeadData}
         <ErrorAlert>
           <p className="center">Invalid Filter. Please adjust your values!</p>
         </ErrorAlert>
@@ -75,6 +98,7 @@ export default function FilteredEventsPage(props) {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <>
+        {pageHeadData}
         <ErrorAlert>
           <p>No Events Found For Your Filter!</p>
         </ErrorAlert>
@@ -89,6 +113,7 @@ export default function FilteredEventsPage(props) {
 
   return (
     <>
+      {pageHeadData}
       <ResultsTitle date={date} />
       <EventList items={filteredEvents} />
     </>

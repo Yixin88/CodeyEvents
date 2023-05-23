@@ -3,6 +3,7 @@ import { getAllEvents } from '../../helpers/api-util'
 import EventList from '../../components/events/event-list';
 import EventsSearch from '../../components/events/events-search';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export default function EventPage(props) {
 
@@ -16,6 +17,10 @@ export default function EventPage(props) {
 
   return (
     <div>
+      <Head>
+        <title>All Events</title>
+        <meta name='description' content='Find your next developer event near you!' />
+      </Head>
       <EventsSearch onSearch={findEventHandler}/>
       <EventList items={events}/>
     </div>
