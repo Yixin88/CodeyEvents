@@ -39,11 +39,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/events/[...slug].js"
-    ],
-    "/events/[eventId]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/events/[eventId].js"
     ]
   },
   "ampFirstPages": []
