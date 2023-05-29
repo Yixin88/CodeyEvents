@@ -1,6 +1,6 @@
 import classes from './comment-list.module.css';
 
-function CommentList() {
+export default function CommentList() {
   return (
     <ul className={classes.comments}>
       {/* Render list of comments - fetched from API */}
@@ -19,5 +19,3 @@ function CommentList() {
     </ul>
   );
 }
-
-export default CommentList;

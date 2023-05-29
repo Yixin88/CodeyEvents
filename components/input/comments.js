@@ -4,7 +4,7 @@ import CommentList from './comment-list';
 import NewComment from './new-comment';
 import classes from './comments.module.css';
 
-function Comments(props) {
+export default function Comments(props) {
   const { eventId } = props;
 
   const [showComments, setShowComments] = useState(false);
@@ -27,5 +27,3 @@ function Comments(props) {
     </section>
   );
 }
-
-export default Comments;

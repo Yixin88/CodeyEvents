@@ -1,6 +1,6 @@
 import classes from './newsletter-registration.module.css';
 
-function NewsletterRegistration() {
+export default function NewsletterRegistration() {
   function registrationHandler(event) {
     event.preventDefault();
 
@@ -26,5 +26,3 @@ function NewsletterRegistration() {
     </section>
   );
 }
-
-export default NewsletterRegistration;
