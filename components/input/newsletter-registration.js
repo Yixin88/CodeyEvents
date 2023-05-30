@@ -21,9 +21,6 @@ export default function NewsletterRegistration() {
     .then(data => {
       console.log(data)
     })
-    // fetch user input (state or refs)
-    // optional: validate input
-    // send valid data to API
   }
 
   return (

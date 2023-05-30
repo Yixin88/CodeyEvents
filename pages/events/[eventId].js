@@ -35,7 +35,7 @@ export default function EventDetailPage(props) {
       <EventContent>
         <p>{event.description}</p>
       </EventContent>
-      <Comments eventUd={event.id} />
+      <Comments eventId={event.id} />
     </>
   );
 }
