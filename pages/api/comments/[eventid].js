@@ -29,9 +29,15 @@ export default async function handler(req, res) {
     };
 
     const db = client.db();
-    const result = await db.collection("comments").insertOne(newComment);
+    const result = await db.collection(eventId).insertOne(newComment);
 
     newComment.id = result.insertedId;
+
+    const documents = await db
+      .collection(eventId)
+      .find()
+      .sort({ _id: -1 })
+      .toArray();
 
     res.status(201).json({ message: "Added Comment.", comment: newComment });
   }
@@ -40,7 +46,7 @@ export default async function handler(req, res) {
     const db = client.db();
 
     const documents = await db
-      .collection("comments")
+      .collection(eventId)
       .find()
       .sort({ _id: -1 })
       .toArray();

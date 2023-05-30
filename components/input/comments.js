@@ -16,7 +16,7 @@ export default function Comments(props) {
     .then(data => {
       setComments(data.comments)
     })
-  }, [showComments])
+  })
 
   function toggleCommentsHandler() {
     setShowComments((prevStatus) => !prevStatus);
