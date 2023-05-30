@@ -1,16 +1,5 @@
-import { MongoClient } from 'mongodb';
+import {connectDatabase, insectDocument} from '../../helpers/db-util'
 
-async function connectDatabase() {
-  const client = await MongoClient.connect('mongodb+srv://ying:ying@cluster0.andzl1u.mongodb.net/events?retryWrites=true&w=majority');
-
-  return client
-}
-
-async function insectDocument(client, document) {
-  const db = client.db();
-
-  await db.collection('newsletter').insertOne(document)
-}
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -30,7 +19,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      await insectDocument(client, {email: userEmail})
+      await insectDocument(client, 'newsletter', {email: userEmail})
       client.close();
     } catch (error) {
       res.status(500).json({message: 'Inserting data failed!'})
