@@ -1,45 +1,113 @@
 "use strict";
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 (() => {
 var exports = {};
-exports.id = "pages/api/comments/[eventId]";
-exports.ids = ["pages/api/comments/[eventId]"];
+exports.id = 774;
+exports.ids = [774];
 exports.modules = {
 
-/***/ "mongodb":
-/*!**************************!*\
-  !*** external "mongodb" ***!
-  \**************************/
-/***/ ((module) => {
+/***/ 1990:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-module.exports = require("mongodb");
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "TR": () => (/* binding */ connectDatabase),
+  "uW": () => (/* binding */ getAllDocument),
+  "ZZ": () => (/* binding */ insectDocument)
+});
+
+;// CONCATENATED MODULE: external "mongodb"
+const external_mongodb_namespaceObject = require("mongodb");
+;// CONCATENATED MODULE: ./helpers/db-util.js
+
+async function connectDatabase() {
+    const client = await external_mongodb_namespaceObject.MongoClient.connect("mongodb+srv://ying:ying@cluster0.andzl1u.mongodb.net/events?retryWrites=true&w=majority");
+    return client;
+}
+async function insectDocument(client, collection, document) {
+    const db = client.db();
+    const result = await db.collection(collection).insertOne(document);
+    return result;
+}
+async function getAllDocument(client, collection, sort) {
+    const db = client.db();
+    const documents = await db.collection(collection).find().sort(sort).toArray();
+    return documents;
+}
+
 
 /***/ }),
 
-/***/ "(api)/./helpers/db-util.js":
-/*!****************************!*\
-  !*** ./helpers/db-util.js ***!
-  \****************************/
+/***/ 3582:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"connectDatabase\": () => (/* binding */ connectDatabase),\n/* harmony export */   \"getAllDocument\": () => (/* binding */ getAllDocument),\n/* harmony export */   \"insectDocument\": () => (/* binding */ insectDocument)\n/* harmony export */ });\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mongodb */ \"mongodb\");\n/* harmony import */ var mongodb__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mongodb__WEBPACK_IMPORTED_MODULE_0__);\n\nasync function connectDatabase() {\n    const client = await mongodb__WEBPACK_IMPORTED_MODULE_0__.MongoClient.connect(\"mongodb+srv://ying:ying@cluster0.andzl1u.mongodb.net/events?retryWrites=true&w=majority\");\n    return client;\n}\nasync function insectDocument(client, collection, document) {\n    const db = client.db();\n    const result = await db.collection(collection).insertOne(document);\n    return result;\n}\nasync function getAllDocument(client, collection, sort) {\n    const db = client.db();\n    const documents = await db.collection(collection).find().sort(sort).toArray();\n    return documents;\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9oZWxwZXJzL2RiLXV0aWwuanMuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFBc0M7QUFFL0IsZUFBZUMsa0JBQWtCO0lBQ3RDLE1BQU1DLFNBQVMsTUFBTUYsd0RBQW1CLENBQUM7SUFFekMsT0FBT0U7QUFDVCxDQUFDO0FBRU0sZUFBZUUsZUFBZUYsTUFBTSxFQUFFRyxVQUFVLEVBQUVDLFFBQVEsRUFBRTtJQUNqRSxNQUFNQyxLQUFLTCxPQUFPSyxFQUFFO0lBRXBCLE1BQU1DLFNBQVMsTUFBTUQsR0FBR0YsVUFBVSxDQUFDQSxZQUFZSSxTQUFTLENBQUNIO0lBRXpELE9BQU9FO0FBQ1QsQ0FBQztBQUVNLGVBQWVFLGVBQWVSLE1BQU0sRUFBRUcsVUFBVSxFQUFFTSxJQUFJLEVBQUU7SUFDN0QsTUFBTUosS0FBS0wsT0FBT0ssRUFBRTtJQUVwQixNQUFNSyxZQUFZLE1BQU1MLEdBQ3JCRixVQUFVLENBQUNBLFlBQ1hRLElBQUksR0FDSkYsSUFBSSxDQUFDQSxNQUNMRyxPQUFPO0lBRVYsT0FBT0Y7QUFDVCxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbmV4dGpzLWNvdXJzZS8uL2hlbHBlcnMvZGItdXRpbC5qcz9mNTc3Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE1vbmdvQ2xpZW50IH0gZnJvbSAnbW9uZ29kYic7XG5cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiBjb25uZWN0RGF0YWJhc2UoKSB7XG4gIGNvbnN0IGNsaWVudCA9IGF3YWl0IE1vbmdvQ2xpZW50LmNvbm5lY3QoJ21vbmdvZGIrc3J2Oi8veWluZzp5aW5nQGNsdXN0ZXIwLmFuZHpsMXUubW9uZ29kYi5uZXQvZXZlbnRzP3JldHJ5V3JpdGVzPXRydWUmdz1tYWpvcml0eScpO1xuXG4gIHJldHVybiBjbGllbnRcbn1cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGluc2VjdERvY3VtZW50KGNsaWVudCwgY29sbGVjdGlvbiwgZG9jdW1lbnQpIHtcbiAgY29uc3QgZGIgPSBjbGllbnQuZGIoKTtcblxuICBjb25zdCByZXN1bHQgPSBhd2FpdCBkYi5jb2xsZWN0aW9uKGNvbGxlY3Rpb24pLmluc2VydE9uZShkb2N1bWVudCk7XG5cbiAgcmV0dXJuIHJlc3VsdDtcbn1cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldEFsbERvY3VtZW50KGNsaWVudCwgY29sbGVjdGlvbiwgc29ydCkge1xuICBjb25zdCBkYiA9IGNsaWVudC5kYigpO1xuXG4gIGNvbnN0IGRvY3VtZW50cyA9IGF3YWl0IGRiXG4gICAgLmNvbGxlY3Rpb24oY29sbGVjdGlvbilcbiAgICAuZmluZCgpXG4gICAgLnNvcnQoc29ydClcbiAgICAudG9BcnJheSgpO1xuXG4gIHJldHVybiBkb2N1bWVudHM7XG59Il0sIm5hbWVzIjpbIk1vbmdvQ2xpZW50IiwiY29ubmVjdERhdGFiYXNlIiwiY2xpZW50IiwiY29ubmVjdCIsImluc2VjdERvY3VtZW50IiwiY29sbGVjdGlvbiIsImRvY3VtZW50IiwiZGIiLCJyZXN1bHQiLCJpbnNlcnRPbmUiLCJnZXRBbGxEb2N1bWVudCIsInNvcnQiLCJkb2N1bWVudHMiLCJmaW5kIiwidG9BcnJheSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./helpers/db-util.js\n");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ handler)
+/* harmony export */ });
+/* harmony import */ var _helpers_db_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1990);
 
-/***/ }),
+async function handler(req, res) {
+    const eventId = req.query.eventId;
+    let client;
+    try {
+        client = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__/* .connectDatabase */ .TR)();
+    } catch (error) {
+        res.status(500).json({
+            message: "Connecting to the database failed!"
+        });
+        return;
+    }
+    if (req.method === "POST") {
+        const { email , name , text  } = req.body;
+        if (!email.includes("@") || !name || name.trim() === "" || !text || text.trim() === "") {
+            res.status(422).json({
+                message: "Invalid input."
+            });
+            client.close();
+            return;
+        }
+        const newComment = {
+            email,
+            name,
+            text,
+            eventId
+        };
+        let result;
+        try {
+            result = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__/* .insectDocument */ .ZZ)(client, eventId, newComment);
+            newComment._id = result.insertedId;
+            res.status(201).json({
+                message: "Added Comment.",
+                comment: newComment
+            });
+        } catch (error1) {
+            res.status(422).json({
+                message: "Inserting comment failed!"
+            });
+            return;
+        }
+        const documents = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__/* .getAllDocument */ .uW)(client, eventId, {
+            _id: -1
+        });
+    }
+    if (req.method === "GET") {
+        try {
+            const documents1 = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__/* .getAllDocument */ .uW)(client, eventId, {
+                _id: -1
+            });
+            res.status(200).json({
+                comments: documents1
+            });
+        } catch (error2) {
+            res.status(500).json({
+                message: "Getting comments failed."
+            });
+        }
+    }
+    client.close();
+}
 
-/***/ "(api)/./pages/api/comments/[eventId].js":
-/*!*****************************************!*\
-  !*** ./pages/api/comments/[eventId].js ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ handler)\n/* harmony export */ });\n/* harmony import */ var _helpers_db_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../helpers/db-util */ \"(api)/./helpers/db-util.js\");\n\nasync function handler(req, res) {\n    const eventId = req.query.eventId;\n    let client;\n    try {\n        client = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__.connectDatabase)();\n    } catch (error) {\n        res.status(500).json({\n            message: \"Connecting to the database failed!\"\n        });\n        return;\n    }\n    if (req.method === \"POST\") {\n        const { email , name , text  } = req.body;\n        if (!email.includes(\"@\") || !name || name.trim() === \"\" || !text || text.trim() === \"\") {\n            res.status(422).json({\n                message: \"Invalid input.\"\n            });\n            client.close();\n            return;\n        }\n        const newComment = {\n            email,\n            name,\n            text,\n            eventId\n        };\n        let result;\n        try {\n            result = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__.insectDocument)(client, eventId, newComment);\n            newComment._id = result.insertedId;\n            res.status(201).json({\n                message: \"Added Comment.\",\n                comment: newComment\n            });\n        } catch (error1) {\n            res.status(422).json({\n                message: \"Inserting comment failed!\"\n            });\n            return;\n        }\n        const documents = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__.getAllDocument)(client, eventId, {\n            _id: -1\n        });\n    }\n    if (req.method === \"GET\") {\n        try {\n            const documents1 = await (0,_helpers_db_util__WEBPACK_IMPORTED_MODULE_0__.getAllDocument)(client, eventId, {\n                _id: -1\n            });\n            res.status(200).json({\n                comments: documents1\n            });\n        } catch (error2) {\n            res.status(500).json({\n                message: \"Getting comments failed.\"\n            });\n        }\n    }\n    client.close();\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvY29tbWVudHMvW2V2ZW50SWRdLmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7O0FBQXdGO0FBRXpFLGVBQWVHLFFBQVFDLEdBQUcsRUFBRUMsR0FBRyxFQUFFO0lBQzlDLE1BQU1DLFVBQVVGLElBQUlHLEtBQUssQ0FBQ0QsT0FBTztJQUVqQyxJQUFJRTtJQUVKLElBQUk7UUFDRkEsU0FBUyxNQUFNUixpRUFBZUE7SUFDaEMsRUFBRSxPQUFPUyxPQUFPO1FBQ2RKLElBQUlLLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7WUFBQ0MsU0FBUztRQUFvQztRQUNuRTtJQUNGO0lBRUEsSUFBSVIsSUFBSVMsTUFBTSxLQUFLLFFBQVE7UUFDekIsTUFBTSxFQUFFQyxNQUFLLEVBQUVDLEtBQUksRUFBRUMsS0FBSSxFQUFFLEdBQUdaLElBQUlhLElBQUk7UUFFdEMsSUFDRSxDQUFDSCxNQUFNSSxRQUFRLENBQUMsUUFDaEIsQ0FBQ0gsUUFDREEsS0FBS0ksSUFBSSxPQUFPLE1BQ2hCLENBQUNILFFBQ0RBLEtBQUtHLElBQUksT0FBTyxJQUNoQjtZQUNBZCxJQUFJSyxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO2dCQUFFQyxTQUFTO1lBQWlCO1lBQ2pESixPQUFPWSxLQUFLO1lBQ1o7UUFDRixDQUFDO1FBRUQsTUFBTUMsYUFBYTtZQUNqQlA7WUFDQUM7WUFDQUM7WUFDQVY7UUFDRjtRQUVBLElBQUlnQjtRQUVKLElBQUk7WUFDRkEsU0FBUyxNQUFNckIsZ0VBQWNBLENBQUNPLFFBQVFGLFNBQVNlO1lBQy9DQSxXQUFXRSxHQUFHLEdBQUdELE9BQU9FLFVBQVU7WUFDbENuQixJQUFJSyxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO2dCQUFFQyxTQUFTO2dCQUFrQmEsU0FBU0o7WUFBVztRQUN4RSxFQUFFLE9BQU9aLFFBQU87WUFDZEosSUFBSUssTUFBTSxDQUFDLEtBQUtDLElBQUksQ0FBQztnQkFBRUMsU0FBUztZQUE0QjtZQUM1RDtRQUNGO1FBRUEsTUFBTWMsWUFBWSxNQUFNeEIsZ0VBQWNBLENBQUNNLFFBQVFGLFNBQVM7WUFBRWlCLEtBQUssQ0FBQztRQUFFO0lBRXBFLENBQUM7SUFFRCxJQUFJbkIsSUFBSVMsTUFBTSxLQUFLLE9BQU87UUFFeEIsSUFBSTtZQUNGLE1BQU1hLGFBQVksTUFBTXhCLGdFQUFjQSxDQUFDTSxRQUFRRixTQUFTO2dCQUFFaUIsS0FBSyxDQUFDO1lBQUU7WUFDbEVsQixJQUFJSyxNQUFNLENBQUMsS0FBS0MsSUFBSSxDQUFDO2dCQUFFZ0IsVUFBVUQ7WUFBVTtRQUM3QyxFQUFFLE9BQU9qQixRQUFPO1lBQ2RKLElBQUlLLE1BQU0sQ0FBQyxLQUFLQyxJQUFJLENBQUM7Z0JBQUVDLFNBQVM7WUFBMkI7UUFDN0Q7SUFDRixDQUFDO0lBRURKLE9BQU9ZLEtBQUs7QUFDZCxDQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbmV4dGpzLWNvdXJzZS8uL3BhZ2VzL2FwaS9jb21tZW50cy9bZXZlbnRJZF0uanM/OGI0MCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge2Nvbm5lY3REYXRhYmFzZSwgaW5zZWN0RG9jdW1lbnQsIGdldEFsbERvY3VtZW50fSBmcm9tICcuLi8uLi8uLi9oZWxwZXJzL2RiLXV0aWwnXG5cbmV4cG9ydCBkZWZhdWx0IGFzeW5jIGZ1bmN0aW9uIGhhbmRsZXIocmVxLCByZXMpIHtcbiAgY29uc3QgZXZlbnRJZCA9IHJlcS5xdWVyeS5ldmVudElkO1xuXG4gIGxldCBjbGllbnQ7XG5cbiAgdHJ5IHtcbiAgICBjbGllbnQgPSBhd2FpdCBjb25uZWN0RGF0YWJhc2UoKTtcbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICByZXMuc3RhdHVzKDUwMCkuanNvbih7bWVzc2FnZTogJ0Nvbm5lY3RpbmcgdG8gdGhlIGRhdGFiYXNlIGZhaWxlZCEnfSlcbiAgICByZXR1cm47XG4gIH1cblxuICBpZiAocmVxLm1ldGhvZCA9PT0gXCJQT1NUXCIpIHtcbiAgICBjb25zdCB7IGVtYWlsLCBuYW1lLCB0ZXh0IH0gPSByZXEuYm9keTtcblxuICAgIGlmIChcbiAgICAgICFlbWFpbC5pbmNsdWRlcyhcIkBcIikgfHxcbiAgICAgICFuYW1lIHx8XG4gICAgICBuYW1lLnRyaW0oKSA9PT0gXCJcIiB8fFxuICAgICAgIXRleHQgfHxcbiAgICAgIHRleHQudHJpbSgpID09PSBcIlwiXG4gICAgKSB7XG4gICAgICByZXMuc3RhdHVzKDQyMikuanNvbih7IG1lc3NhZ2U6IFwiSW52YWxpZCBpbnB1dC5cIiB9KTtcbiAgICAgIGNsaWVudC5jbG9zZSgpO1xuICAgICAgcmV0dXJuO1xuICAgIH1cblxuICAgIGNvbnN0IG5ld0NvbW1lbnQgPSB7XG4gICAgICBlbWFpbCxcbiAgICAgIG5hbWUsXG4gICAgICB0ZXh0LFxuICAgICAgZXZlbnRJZCxcbiAgICB9O1xuXG4gICAgbGV0IHJlc3VsdDtcblxuICAgIHRyeSB7XG4gICAgICByZXN1bHQgPSBhd2FpdCBpbnNlY3REb2N1bWVudChjbGllbnQsIGV2ZW50SWQsIG5ld0NvbW1lbnQpXG4gICAgICBuZXdDb21tZW50Ll9pZCA9IHJlc3VsdC5pbnNlcnRlZElkO1xuICAgICAgcmVzLnN0YXR1cygyMDEpLmpzb24oeyBtZXNzYWdlOiBcIkFkZGVkIENvbW1lbnQuXCIsIGNvbW1lbnQ6IG5ld0NvbW1lbnQgfSk7XG4gICAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICAgIHJlcy5zdGF0dXMoNDIyKS5qc29uKHsgbWVzc2FnZTogXCJJbnNlcnRpbmcgY29tbWVudCBmYWlsZWQhXCIgfSk7XG4gICAgICByZXR1cm47XG4gICAgfVxuXG4gICAgY29uc3QgZG9jdW1lbnRzID0gYXdhaXQgZ2V0QWxsRG9jdW1lbnQoY2xpZW50LCBldmVudElkLCB7IF9pZDogLTEgfSk7XG5cbiAgfVxuXG4gIGlmIChyZXEubWV0aG9kID09PSBcIkdFVFwiKSB7XG5cbiAgICB0cnkge1xuICAgICAgY29uc3QgZG9jdW1lbnRzID0gYXdhaXQgZ2V0QWxsRG9jdW1lbnQoY2xpZW50LCBldmVudElkLCB7IF9pZDogLTEgfSk7XG4gICAgICByZXMuc3RhdHVzKDIwMCkuanNvbih7IGNvbW1lbnRzOiBkb2N1bWVudHMgfSk7XG4gICAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICAgIHJlcy5zdGF0dXMoNTAwKS5qc29uKHsgbWVzc2FnZTogJ0dldHRpbmcgY29tbWVudHMgZmFpbGVkLicgfSk7XG4gICAgfVxuICB9XG5cbiAgY2xpZW50LmNsb3NlKCk7XG59XG4iXSwibmFtZXMiOlsiY29ubmVjdERhdGFiYXNlIiwiaW5zZWN0RG9jdW1lbnQiLCJnZXRBbGxEb2N1bWVudCIsImhhbmRsZXIiLCJyZXEiLCJyZXMiLCJldmVudElkIiwicXVlcnkiLCJjbGllbnQiLCJlcnJvciIsInN0YXR1cyIsImpzb24iLCJtZXNzYWdlIiwibWV0aG9kIiwiZW1haWwiLCJuYW1lIiwidGV4dCIsImJvZHkiLCJpbmNsdWRlcyIsInRyaW0iLCJjbG9zZSIsIm5ld0NvbW1lbnQiLCJyZXN1bHQiLCJfaWQiLCJpbnNlcnRlZElkIiwiY29tbWVudCIsImRvY3VtZW50cyIsImNvbW1lbnRzIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./pages/api/comments/[eventId].js\n");
 
 /***/ })
 
@@ -50,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 var __webpack_require__ = require("../../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/comments/[eventId].js"));
+var __webpack_exports__ = (__webpack_exec__(3582));
 module.exports = __webpack_exports__;
 
 })();
